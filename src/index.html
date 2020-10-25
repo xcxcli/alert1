@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Sandbox</title>
+</head>
+<body>
+	<div id="main">
+		<ok-show text="Code"><pre class="text">{{funcStr}}</pre></ok-show>
+		<ok-show text="Data"><br><textarea v-model="input" @input="fresh(20)" @keydown.tab.prevent="doTab" spellcheck="false"></textarea></ok-show>
+		<ok-show text="Output"><span v-if="success" style="color:red">Success</span><pre class="text">{{output}}</pre></ok-show>
+		<if-show text="console.log" :data="log"></if-show>
+		<if-show text="alert" :data="alert"></if-show>
+		<if-show text="Error" :data="error"></if-show>
+	</div>
+	<div class="show">
+		<div>iframe</div>
+		<iframe style="width:800px;height:50px" sandbox="allow-scripts"></iframe>
+	</div>
+</body>
+</html>
